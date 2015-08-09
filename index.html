@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title> POKE-BALL MANIA
+  </title>
+  <style type="text/css">
+    body { margin: 0 }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.15/processing.min.js"></script>
+  <meta name="author" content="MY NAME + HER NAME">
+  <meta name="description" content="Click. Make Poke-Balls. Win.">
+</head>
+
+<body>
+  <script type="text/processing" data-processing-target="sketch">
+    // YOUR PROCESSING CODE GOES HERE
+    var pokeColors = [];
+		void setup(){
+			size (displayWidth, displayHeight);
+			background (255,255,20);
+			color pokeColor1 = color(55,14,110);
+			color pokeColor2 = color(255,128,0);
+			color pokeColor3 = color(41,186,247);
+			color pokeColor4 = color(214,235,30);
+			color pokeColor5 = color(65,223,60);
+			pokeColor = [pokeColor1, pokeColor2, pokeColor3, pokeColor4, pokeColor5];
+		} 
+		void draw() {
+
+		} 
+		
+		void mouseClicked(){
+
+			//selecting random x and y values for the middle of the pokeball
+			//num randX = Math.floor(Math.random() * displayWidth);
+			//num randY = Math.floor(Math.random() * displayHeight); 
+			num thisX = mouseX;
+			num thisY = mouseY;
+			
+			strokeWeight(4);
+			num ranPoke = Math.floor(Math.random() * 5);
+			fill (pokeColor[ranPoke]);
+			ellipse(thisX,thisY,100,100);
+			fill(252,252,252);
+			arc(thisX, thisY, 100, 100, 0, PI);
+			line(thisX - 50, thisY, thisX + 50, thisY);	
+			ellipse(thisX,thisY,30,30);
+			strokeWeight(1);
+			ellipse(thisX,thisY,15,15);
+		}
+		
+  </script>
+  <canvas id="sketch"></canvas>
+  <script src="https://pzp1997.github.io/cdn/processing-mobile/1.1.0/processing-mobile.min.js"></script>
+</body>
+
+</html>
